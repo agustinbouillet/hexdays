@@ -17,7 +17,6 @@ Suponiendo que se deseen seleccionar los días: lunes, martes y jueves. El numer
 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
 |---|---|---|---|---|---|---|---|
 | Todos | Sáb | Vie | Jue | Mié | Mar | Lun | Dom |
-
 |0| 0 | 0 | 1 | 0 | 1 | 1 | 0 |
 
 Que da como resultado el número: [1,2,4] = 16
