@@ -22,8 +22,34 @@ Suponiendo que se deseen seleccionar los días: lunes, martes y jueves. El numer
 Que da como resultado el número: [1,2,4] = 16
 
 
+## Uso
+
+### encode()
+
+```javascript
+hexdays.encode([1,3,5]);
+
+// Returns
+// 2A
+
+```
+
+
+### decode()
+
+```javascript
+hexdays.decode("2A");
+
+// Returns
+// [1,3,5]
+
+```
+
 ---
 ## Demo
  * [https://codepen.io/agustinbouillet/full/abWMPYq](https://codepen.io/agustinbouillet/full/abWMPYq)
  * [CODEPEN](https://codepen.io/)
 
+
+---
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=C5TSLQQEEE5PQ)

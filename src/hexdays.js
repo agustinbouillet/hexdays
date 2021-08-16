@@ -1,27 +1,46 @@
 var hexdays = {
-  days_to_hex: function (days) {
-    if (days.length <= 0) {
+  /**
+   * One byte as hex number.
+   * @param  {string|integer}  value Hex number
+   * @return {Boolean}
+   */
+  isHex: function(value){
+    const regex = /^[a-fA-F0-9]{1,2}$/;
+    return (regex.exec(value) !== null)? true: false;
+  },
+  toNumbers: function(value){
+    if(!value){
+      return null;
+    }
+    return value.map(Number);
+  },
+  encode: function (days) {
+    if ((typeof value === 'undefined') ||(!Array.isArray(value)) || 
+        (value.length == 0)) {
       return null;
     }
 
-    const toNumbers = (arr) => arr.map(Number);
-    var m = [];
+    var bin = [];
 
     for (var i of Array(8).keys()) {
-      if (toNumbers(days).includes(i)) {
-        m.push(1);
+      if (this.toNumbers(days).includes(i)) {
+        bin.push(1);
       } else {
-        m.push(0);
+        bin.push(0);
       }
     }
-    m.reverse();
+    bin.reverse();
 
     var number = m.join("");
     var hexa = parseInt(number, 2).toString(16).toUpperCase();
 
     return hexa.padStart(2, "0");
   },
-  hex_to_days: function (hex) {
+  decode: function (hex) {
+    if(!this.isHex(hex)){
+      return null;
+    }
+
     const binary = parseInt(hex, 16).toString(2).padStart(8, "0");
     const bin_to_list = binary.split("");
     bin_to_list.reverse();
