@@ -15,8 +15,8 @@ var hexdays = {
     return value.map(Number);
   },
   encode: function (days) {
-    if ((typeof value === 'undefined') ||(!Array.isArray(value)) || 
-        (value.length == 0)) {
+    if ((typeof days === 'undefined') || (!Array.isArray(days)) || 
+        (days.length == 0)) {
       return null;
     }
 
@@ -31,7 +31,7 @@ var hexdays = {
     }
     bin.reverse();
 
-    var number = m.join("");
+    var number = bin.join("");
     var hexa = parseInt(number, 2).toString(16).toUpperCase();
 
     return hexa.padStart(2, "0");
