@@ -14,9 +14,28 @@ var hexdays = {
     }
     return value.map(Number);
   },
+  validateInput: function(value){
+    const not_in_rage = function(e){
+      return (![0, 1, 2, 3, 4, 5, 6, 7].includes(parseInt(e)))? true: false;
+    };
+
+    const not_integer = function(e){
+      return (!Number.isInteger(parseFloat(e))) ? true : false;
+    };
+
+    if ((typeof value === 'undefined') || (!Array.isArray(value)) || 
+        (value.length == 0)) {
+      return null;
+    } else if(value.some(not_integer)){
+      return null;
+    } else if(value.some(not_in_rage)){
+      return null;
+    }
+
+    return true;
+  },
   encode: function (days) {
-    if ((typeof days === 'undefined') || (!Array.isArray(days)) || 
-        (days.length == 0)) {
+    if (!this.validateInput(days)) {
       return null;
     }
 
